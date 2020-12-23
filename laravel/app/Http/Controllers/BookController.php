@@ -14,7 +14,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $message = 'Welcome to BookShare sys';
+        $books = Book::all();
+        return view('index', ['message' => $message, 'books' => $books]);
     }
 
     /**
@@ -46,7 +48,10 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        $message = 'Books informattion';
+        $book = Article::find($id);
+        return view('show', ['message' => $message, 'book' => $book]);
+
     }
 
     /**
