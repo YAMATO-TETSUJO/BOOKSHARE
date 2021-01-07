@@ -8,14 +8,14 @@ services: #サービスの設定
       - "8000:80"
     volumes:
       - ./docker/web/default.conf:/etc/nginx/conf.d/default.conf
-      - .:/var/www/html
+      - ./laravel:/var/www/html
 
   app:
     build: ./docker/php
     depends_on:
       - mysql
     volumes:
-      - .:/var/www/html
+      - ./laravel:/var/www/html
 
   mysql:
     image: mysql:5.7
