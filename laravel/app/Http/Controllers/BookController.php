@@ -48,10 +48,9 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        $message = 'Books informattion';
-        $book = Article::find($id);
+        $message = 'Books informattion about ID:';
+        $book = Book::find($id);
         return view('show', ['message' => $message, 'book' => $book]);
-
     }
 
     /**

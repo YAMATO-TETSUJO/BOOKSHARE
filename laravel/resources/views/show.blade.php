@@ -8,7 +8,6 @@
     <body>
         <h1>bookshare</h1>
         <p>{{ $message }}</p>
-        <p>{{ $book->id }}</p>
         <p>{{ $book->isbn }}</p>
 
         <p>
