@@ -46,9 +46,9 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show(Request $request, $id, Book $book)
     {
-        $message = 'Books informattion about ID:';
+        $message = 'Books information about ID:'.$id;
         $book = Book::find($id);
         return view('show', ['message' => $message, 'book' => $book]);
     }
