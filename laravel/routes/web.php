@@ -27,6 +27,12 @@ Route::get('/login'){
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//topページのルーティング
+Route::get('/top', 'App\Http\Controllers\BookController@top')->name('book.top');
+
+//Q&Aページのルーティング
+Route::get('/ans', 'App\Http\Controllers\BookController@ans')->name('book.ans');
+
 //書籍情報表示
 Route::get('/books', 'App\Http\Controllers\BookController@index')->name('book.list');
 Route::get('/book/{id}', 'App\Http\Controllers\BookController@show')->name('book.show');

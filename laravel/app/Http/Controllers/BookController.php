@@ -12,6 +12,16 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function top()
+    {
+        return view('top');
+    }
+
+    public function ans()
+    {
+        return view('ans');
+    }
+
     public function index()
     {
         $message = 'Welcome to BookShare sys';
