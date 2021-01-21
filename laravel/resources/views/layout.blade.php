@@ -4,7 +4,9 @@
         <meta charset='utf-8'>
         {{-- ここからテスト --}}
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+        <meta name='csrf-token' content='{{ csrf_token() }}'>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' >
+        {{-- <script src='{{ asset("js/app.js") }}' defer></script> --}}
         {{-- ここまで --}}
         <title>BookShare</title>
         @include('style-sheet')
@@ -26,6 +28,15 @@
                         <a class="nav-link" href="#">書籍一覧</a>
                     </li>
                     --}}
+                    @if (Route::has('login'))
+                        <div class="nav-item active">
+                            @auth
+                                <a href="{{ url('/dashboard') }}" class="nav-link">ダッシュボード<span class="sr-only">(current)</span></a>
+                            @else
+                                <a href="{{ route('login') }}" class="nav-link">ログイン<span class="sr-only">(current)</span></a>
+                            @endauth
+                        </div>
+                    @endif
                     <li class="nav-item active">
                         <a class="nav-link" href={{ route('book.list') }}>本の一覧<span class="sr-only">(current)</span></a>
                     </li>
