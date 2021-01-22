@@ -23,7 +23,7 @@
 	    .kousin {
 		    overflow:auto;
             /* width:300px; */
-            height:100px;
+            height:200px;
 		    padding:5px;
 		    border:2px dotted #ffffff;
 		    color:#000000;
@@ -37,13 +37,24 @@
         </style>
 
         <div class="kousin">
-            2021/01/22　<span>＜重要！＞</span>Githubで公開<br>
+            2021/01/22　<span>＜重要!!＞</span>Githubで公開<br>
             2020/XX/XX　HOGE<br>
-            2020/XX/XX　HUGA<br>
+            2020/XX/XX　FUGA<br>
             2020/XX/XX　PIYO<br>
+            2020/XX/XX　ABA<br>
+            2020/XX/XX　UGE<br>
+            2020/XX/XX　ATAAAA!!<br>
             2020/XX/XX　DOMU<br>
             2020/XX/XX　GUHU<br>
-            2020/XX/XX　ZAKU<br>
+            2020/XX/XX　<br>
+            2020/XX/XX　<br>
+            2020/XX/XX　BIG<br>
+            2020/XX/XX　BROTHER<br>
+            2020/XX/XX　IS<br>
+            2020/XX/XX　WATCHING<br>
+            2020/XX/XX　YOU<br>
+            2020/XX/XX　<br>
+            2020/XX/XX　<br>
 	        2020/XX/XX　ページ製作開始<br>
         </div>
         <p class="texts"></p>
