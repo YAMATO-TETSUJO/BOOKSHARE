@@ -112,4 +112,20 @@
     .footer-list li {
         padding-bottom: 20px;
     }
+
+    /*トップページの装飾*/
+    .kousin {
+		overflow:auto;
+        /* width:300px; */
+        height:200px;
+		padding:5px;
+	    border:2px dotted #ffffff;
+	    color:#000000;
+		background-color:#ffffff;
+	    line-height:1.5em;
+    }
+    span {
+	    color:#ff0000;
+	    line-height:1.5em;
+    }
 </style>
