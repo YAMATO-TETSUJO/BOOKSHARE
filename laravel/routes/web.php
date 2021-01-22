@@ -32,6 +32,12 @@ Route::get('/ans', 'App\Http\Controllers\BookController@ans')->name('book.ans');
 Route::get('/books', 'App\Http\Controllers\BookController@index')->name('book.list');
 Route::get('/book/{id}', 'App\Http\Controllers\BookController@show')->name('book.show');
 
+//ログイン後の処理
+/* 元のコード
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+*/
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

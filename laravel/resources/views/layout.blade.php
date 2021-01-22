@@ -31,7 +31,7 @@
                     @if (Route::has('login'))
                         <div class="nav-item active">
                             @auth
-                                <a href="{{ url('/dashboard') }}" class="nav-link">ダッシュボード<span class="sr-only">(current)</span></a>
+                                <a href="{{ url('/dashboard') }}" class="nav-link">アカウント管理<span class="sr-only">(current)</span></a>
                             @else
                                 <a href="{{ route('login') }}" class="nav-link">ログイン<span class="sr-only">(current)</span></a>
                             @endauth
