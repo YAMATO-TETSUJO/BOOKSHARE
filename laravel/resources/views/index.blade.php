@@ -1,20 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <title>bookshare</title>
-        <style>body {padding: 10px;}</style>
-    </head>
-    <body>
-        <h1>bookshare</h1>
-        <p>{{ $message }}</p>
+@extends('layout')
+
+@section('content')
+    {{-- <p>{{ $message }}</p> --}}
+
+    @include('search')
+
+    <table class='table table-striped table-hover'>
         @foreach ($books as $book)
-            <p>
-                <a href='{{ route("book.show", ["id" =>  $book->id]) }}'>
-                    {{ $book->id }},
-                    {{ $book->isbn }}
-                </a>
-            </p>
+            <tr>
+                <td>
+                    <a href='{{ route("book.show", ["id" =>  $book->id]) }}'>
+                        {{ $book->title }}
+                    </a>
+                </td>
+                <td>{{ $book->writer }}</td>
+                <td>{{ $book->user_id }}</td>
+            </tr>
         @endforeach
-    </body>
-</html>
+    </table>
+
+    <div>
+        <a href={{ route('book.new') }} class='btn btn-primary'>新規の本の追加</a>
+        <a href={{ route('book.list') }} class='btn btn-primary'>検索条件クリア</a>
+    </div>
+@endsection
