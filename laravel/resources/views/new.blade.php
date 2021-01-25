@@ -8,12 +8,12 @@
             {{ Form::text('title', null) }}
         </div>
         <div class='form-group'>
-            {{ Form::label('owner', 'オーナー（所有者）:') }}
-            {{ Form::text('owner', null) }}
+            {{ Form::label('user_id', 'オーナーID（所有者ID）:') }}
+            {{ Form::text('user_id', null) }}
         </div>
         <div class='form-group'>
-            {{ Form::label('writer', '執筆者:') }}
-            {{ Form::text('writer', null) }}
+            {{ Form::label('author', '執筆者:') }}
+            {{ Form::text('author', null) }}
         </div>
         <div class='form-group'>
             {{ Form::label('publisher', '出版社:') }}

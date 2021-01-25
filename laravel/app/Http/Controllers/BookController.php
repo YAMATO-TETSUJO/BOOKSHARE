@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+//開発環境用設定
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -22,11 +23,33 @@ class BookController extends Controller
         return view('ans');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $message = 'Welcome to BookShare sys';
-        $books = Book::all();
-        return view('index', ['message' => $message, 'books' => $books]);
+        $query = Book::query();
+
+        $s_title = $request->input('s_title');
+        $s_author = $request->input('s_author');
+        $s_user_id = $request->input('s_user_id');
+
+        // whereでtitleカラムから参照している。$s_titleは入力された値。これをカラムで参照している。nullの場合は弾く。
+        if(!empty($s_title)) {
+            $query->where('title', 'like', '%'.$s_title.'%');
+        }
+        if(!empty($s_author)) {
+            $query->where('author', 'like', '%'.$s_author.'%');
+        }
+        if(!empty($s_user_id)) {
+            $query->where('user_id', 'like', '%'.$s_user_id.'%');
+        }
+        
+        foreach ($request->only(['title', 'author','user_id']) as $key => $value) {
+            $query->where($key, 'like', '%'.$value.'%');
+        }
+        
+        
+        $books = $query->get();
+
+        return view('index', compact('books'));
     }
 
     /**
@@ -34,9 +57,10 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $message = '新規書籍追加';
+        return view('new', ['message' => $message]);
     }
 
     /**
@@ -47,7 +71,15 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $book = new Book;
+
+        $book->title = $request->title;
+        $book->user_id = $request->user_id;
+        $book->author = $request->author;
+        $book->publisher = $request->publisher;
+        $book->day = $request->day;
+        $book->save();
+        return redirect('/books');
     }
 
     /**
@@ -69,9 +101,11 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book)
+    public function edit(Request $request, $id, Book $book)
     {
-        //
+        $message = '本の情報を編集';
+        $book = Book::find($id);
+        return view('edit', ['message' => $message, 'book' => $book]);
     }
 
     /**
@@ -81,9 +115,14 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, $id, Book $book)
     {
-        //
+        $book = Book::find($id);
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->publisher = $request->publisher;
+        $book->save();
+        return redirect()->route('book.show', ['id' => $book->id]);
     }
 
     /**
@@ -92,8 +131,10 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy(Request $request, $id, Book $book)
     {
-        //
+        $book = Book::find($id);
+        $book->delete();
+        return redirect('/books');
     }
 }
