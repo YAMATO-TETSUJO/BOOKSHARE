@@ -2,12 +2,38 @@
 
 @section('content')
     <h3>{{ $book->title }}</h3>
-    <p>{{ $message }}</p>
-    <p>title : {{ $book->title }}</p>
-    <p>author : {{ $book->author }}</p>
-    <p>publisher : {{ $book->publisher }}</p>
-    <p>isbn : {{ $book->isbn }}</p>
-    <p>owner : {{ $book->user_id }}</p>
+    <table class='table table-striped table-hover'>
+        <tr>
+            <td>
+                {{ $message }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                title : {{ $book->title }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                author : {{ $book->author }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                publisher : {{ $book->publisher }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                isbn : {{ $book->isbn }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                owner : {{ $book->user_id }}
+            </td>
+        </tr>
+    </table>
 
     <p>
         <a href={{ route('book.list')}} class='btn btn-outline-primary'>一覧に戻る</a>
