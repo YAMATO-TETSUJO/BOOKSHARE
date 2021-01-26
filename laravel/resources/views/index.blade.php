@@ -20,7 +20,9 @@
     </table>
 
     <div>
-        <a href={{ route('book.new') }} class='btn btn-primary'>新規の本の追加</a>
+        @auth
+            <a href={{ route('book.new') }} class='btn btn-primary'>新規の本の追加</a>
+        @endauth
         <a href={{ route('book.list') }} class='btn btn-primary'>検索条件クリア</a>
     </div>
 @endsection
