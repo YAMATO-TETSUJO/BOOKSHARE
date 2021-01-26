@@ -6,6 +6,7 @@
     @include('search')
 
     <table class='table table-striped table-hover'>
+        {{-- ここにユーザーのIDと一致するものを列挙する条件を付け足す --}}
         @foreach ($books as $book)
             <tr>
                 <td>
