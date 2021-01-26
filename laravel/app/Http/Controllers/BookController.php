@@ -8,15 +8,13 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth')->except(['index', 'show']);
-    }
     /**
+     * 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function top()
     {
         return view('top');
@@ -25,6 +23,11 @@ class BookController extends Controller
     public function ans()
     {
         return view('ans');
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['top', 'ans']);
     }
 
     public function index(Request $request)

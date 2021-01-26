@@ -29,17 +29,19 @@
                     </li>
                     --}}
                     @if (Route::has('login'))
-                        <div class="nav-item active">
-                            @auth
-                                <a href="{{ url('/dashboard') }}" class="nav-link">アカウント管理<span class="sr-only">(current)</span></a>
-                            @else
-                                <a href="{{ route('login') }}" class="nav-link">ログイン<span class="sr-only">(current)</span></a>
-                            @endauth
-                        </div>
+                    @auth
+                        <li class="nav-item active">
+                            <a href="{{ url('/dashboard') }}" class="nav-link">アカウント管理<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href={{ route('book.list') }}>本棚<span class="sr-only">(current)</span></a>
+                        </li>
+                        @else
+                        <li class="nav-item active">
+                            <a href="{{ route('login') }}" class="nav-link">ログイン<span class="sr-only">(current)</span></a>
+                        </li>
+                        @endauth
                     @endif
-                    <li class="nav-item active">
-                        <a class="nav-link" href={{ route('book.list') }}>本の一覧<span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" href={{ route('book.ans') }}>Q&A<span class="sr-only">(current)</span></a>
                     </li>
