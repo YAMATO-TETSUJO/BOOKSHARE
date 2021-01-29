@@ -85,6 +85,7 @@ class BookController extends Controller
         $book->user_id = $user->id;
         $book->author = $request->author;
         $book->publisher = $request->publisher;
+        $book->isbn = $request->isbn;
         $book->day = $request->day;
         $book->save();
         return redirect('/books');
@@ -98,9 +99,16 @@ class BookController extends Controller
      */
     public function show(Request $request, $id, Book $book)
     {
-        $message = 'Books information about ID:'.$id;
+        $message = 'この本のID:'.$id;
         $book = Book::find($id);
-        return view('show', ['message' => $message, 'book' => $book]);
+        $user = \Auth::user();
+        if($user){
+            $login_user_id = $user->id;
+        }
+        else{
+            $login_user_id = '';
+        }
+        return view('show', ['message' => $message, 'book' => $book, 'login_user_id' => $login_user_id]);
     }
 
     /**

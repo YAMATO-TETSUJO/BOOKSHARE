@@ -35,13 +35,18 @@
         </tr>
     </table>
 
-    <p>
-        <a href={{ route('book.list')}} class='btn btn-outline-primary'>一覧に戻る</a>
-        <a href={{ route('book.edit', ["id" =>  $book->id]) }} class='btn btn-outline-primary'>編集</a>
-    </p>
-    <div>
-        {{ Form::open(['method' => 'delete', 'route' => ['book.delete', $book->id]]) }}
-            {{ Form::submit('削除', ['class' => 'btn btn-primary']) }}
-        {{ Form::close() }}
-    </div>
+    @auth
+        <p>
+            <a href={{ route('book.list')}} class='btn btn-outline-primary'>一覧に戻る</a>
+            @if($book->user_id == $login_user_id)
+                <a href={{ route('book.edit', ["id" =>  $book->id]) }} class='btn btn-outline-primary'>編集</a>
+                </p>
+                {{ Form::open(['method' => 'delete', 'route' => ['book.delete', $book->id]]) }}
+                    {{ Form::submit('削除', ['class' => 'btn btn-primary']) }}
+                {{ Form::close() }}
+            @else
+                </p>
+            @endif
+        </p>
+    @endauth
 @endsection

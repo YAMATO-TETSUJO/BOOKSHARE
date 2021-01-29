@@ -16,6 +16,10 @@
             {{ Form::text('publisher', null) }}
         </div>
         <div class='form-group'>
+            {{ Form::label('isbn', 'ISBN:') }}
+            {{ Form::text('isbn', null) }}
+        </div>
+        <div class='form-group'>
             {{ Form::label('day', '貸出期間:') }}
             {{ Form::text('day', 14) }}
         </div>
