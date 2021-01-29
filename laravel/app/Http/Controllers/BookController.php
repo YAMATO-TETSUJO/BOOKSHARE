@@ -37,6 +37,7 @@ class BookController extends Controller
         $s_title = $request->input('s_title');
         $s_author = $request->input('s_author');
         $s_user_id = $request->input('s_user_id');
+        $s_isbn = $request->input('s_isbn');
 
         // whereでtitleカラムから参照している。$s_titleは入力された値。これをカラムで参照している。nullの場合は弾く。
         if(!empty($s_title)) {
@@ -47,6 +48,9 @@ class BookController extends Controller
         }
         if(!empty($s_user_id)) {
             $query->where('user_id', 'like', '%'.$s_user_id.'%');
+        }
+        if(!empty($s_isbn)) {
+            $query->where('isbn', 'like', '%'.$s_isbn.'%');
         }
         
         foreach ($request->only(['title', 'author','user_id']) as $key => $value) {

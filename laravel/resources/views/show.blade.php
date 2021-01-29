@@ -21,6 +21,10 @@
         </tr>
         --}}
     </table>
+    <br>
+    <br>
+    <h3 class="section-title">貸出の際のお願い</h3>
+    <p class="texts">{{ $book->comment }}</p>
 
     @auth
         <p>
