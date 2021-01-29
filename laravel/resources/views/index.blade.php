@@ -6,7 +6,9 @@
     @include('search')
 
     <table class='table table-striped table-hover'>
-        {{-- ここにユーザーのIDと一致するものを列挙する条件を付け足す --}}
+        <tr>
+            <th>タイトル</th><th>著者</th><th>所有者</th>
+        </tr>
         @foreach ($books as $book)
             <tr>
                 <td>
@@ -14,8 +16,8 @@
                         {{ $book->title }}
                     </a>
                 </td>
-                <td>{{ $book->writer }}</td>
-                <td>{{ $book->user_id }}</td>
+                <td>{{ $book->author }}</td>
+                <td>{{ $book->user->name }}</td>
             </tr>
         @endforeach
     </table>

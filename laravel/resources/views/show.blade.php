@@ -10,27 +10,27 @@
         </tr>
         <tr>
             <td>
-                title : {{ $book->title }}
+                タイトル : {{ $book->title }}
             </td>
         </tr>
         <tr>
             <td>
-                author : {{ $book->author }}
+                筆者 : {{ $book->author }}
             </td>
         </tr>
         <tr>
             <td>
-                publisher : {{ $book->publisher }}
+                出版社 : {{ $book->publisher }}
             </td>
         </tr>
         <tr>
             <td>
-                isbn : {{ $book->isbn }}
+                ISBN : {{ $book->isbn }}
             </td>
         </tr>
         <tr>
             <td>
-                owner : {{ $book->user_id }}
+                所有者 : {{ $book->user->name }}
             </td>
         </tr>
     </table>

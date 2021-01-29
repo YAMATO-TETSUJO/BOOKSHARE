@@ -8,10 +8,6 @@
             {{ Form::text('title', null) }}
         </div>
         <div class='form-group'>
-            {{ Form::label('user_id', 'オーナーID（所有者ID）:') }}
-            {{ Form::text('user_id', null) }}
-        </div>
-        <div class='form-group'>
             {{ Form::label('author', '執筆者:') }}
             {{ Form::text('author', null) }}
         </div>
