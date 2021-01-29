@@ -4,35 +4,22 @@
     <h3>{{ $book->title }}</h3>
     <table class='table table-striped table-hover'>
         <tr>
+            <th>著者</th><th>出版社</th><th>ISBN</th><th>所有者</th><th>貸出期間</th>
+        </tr>
+        <tr>
+            <td>{{ $book->author }}</td>
+            <td>{{ $book->publisher }}</td>
+            <td>{{ $book->isbn }}</td>
+            <td>{{ $book->user->name }}</td>
+            <td>{{ $book->day }}日</td>
+        </tr>
+        {{--
+        <tr>
             <td>
                 {{ $message }}
             </td>
         </tr>
-        <tr>
-            <td>
-                タイトル : {{ $book->title }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                筆者 : {{ $book->author }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                出版社 : {{ $book->publisher }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                ISBN : {{ $book->isbn }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                所有者 : {{ $book->user->name }}
-            </td>
-        </tr>
+        --}}
     </table>
 
     @auth
