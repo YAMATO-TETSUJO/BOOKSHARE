@@ -27,5 +27,6 @@
             <a href={{ route('book.new') }} class='btn btn-primary'>新規の本の追加</a>
         @endauth
         <a href={{ route('book.list') }} class='btn btn-primary'>検索条件クリア</a>
+        <a href={{ route('mybook.list') }} class='btn btn-primary'>自分の本の表示</a>
     </div>
 @endsection
