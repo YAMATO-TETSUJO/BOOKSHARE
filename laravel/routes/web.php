@@ -40,6 +40,10 @@ Route::post('/book/update/{id}', 'App\Http\Controllers\BookController@update')->
 Route::get('/book/{id}', 'App\Http\Controllers\BookController@show')->name('book.show');
 Route::delete('/book/{id}', 'App\Http\Controllers\BookController@destroy')->name('book.delete');
 
+//Google Books API
+Route::post('result','App\Http\Controllers\BookController@result');
+Route::get('/find', 'App\Http\Controllers\BookController@find')->name('book.find');
+
 //ログイン後の処理
 /* 元のコード
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
