@@ -128,4 +128,8 @@
 	    color:#ff0000;
 	    line-height:1.5em;
     }
+    .aori {
+        color:#ffffff;
+        line-height:1.5em;
+    }
 </style>

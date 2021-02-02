@@ -31,7 +31,8 @@
                 </div>
             {{ Form::close() }}
         @else
-            </p>あなたにこの本を編集する権限はありません。
+            <div><span>あなたにこの本を編集する権限はありません。</span></div>
+            <div class = "aori">おととい来やがれバーカ</div>
         @endif
     @endauth
 @endsection
