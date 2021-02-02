@@ -155,8 +155,9 @@ class BookController extends Controller
     public function edit(Request $request, $id, Book $book)
     {
         $message = '本の情報を編集';
+        $login_user_id = Auth::id();
         $book = Book::find($id);
-        return view('edit', ['message' => $message, 'book' => $book]);
+        return view('edit', ['message' => $message, 'book' => $book, 'login_user_id' => $login_user_id]);
     }
 
     /**
