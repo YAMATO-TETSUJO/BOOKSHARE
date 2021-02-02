@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 //開発環境用設定
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -58,6 +59,36 @@ class BookController extends Controller
         }
         
         
+        $books = $query->get();
+
+        return view('index', compact('books'));
+    }
+
+    //自分の本棚
+    public function myindex(Request $request)
+    {
+        $query = Book::query();
+        $s_user_id = Auth::id();
+
+        // whereでtitleカラムから参照している。$s_titleは入力された値。これをカラムで参照している。nullの場合は弾く。
+        if(!empty($s_title)) {
+            $query->where('title', 'like', '%'.$s_title.'%');
+        }
+        if(!empty($s_author)) {
+            $query->where('author', 'like', '%'.$s_author.'%');
+        }
+        if(!empty($s_user_id)) {
+            $query->where('user_id', 'like', '%'.$s_user_id.'%');
+        }
+        if(!empty($s_isbn)) {
+            $query->where('isbn', 'like', '%'.$s_isbn.'%');
+        }
+        
+        foreach ($request->only(['title', 'author','user_id']) as $key => $value) {
+            $query->where($key, 'like', '%'.$value.'%');
+        }
+        
+        $query->where('user_id', 'like', '%'.$s_user_id.'%');
         $books = $query->get();
 
         return view('index', compact('books'));

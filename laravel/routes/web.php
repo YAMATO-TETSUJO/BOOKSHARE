@@ -29,6 +29,7 @@ Route::get('/top', 'App\Http\Controllers\BookController@top')->name('book.top');
 Route::get('/ans', 'App\Http\Controllers\BookController@ans')->name('book.ans');
 
 //bookのルーティング
+Route::get('/mybooks', 'App\Http\Controllers\BookController@myindex')->name('mybook.list'); //自分の本棚
 Route::get('/books', 'App\Http\Controllers\BookController@index')->name('book.list');
 Route::get('/book/new', 'App\Http\Controllers\BookController@create')->name('book.new');
 Route::post('book', 'App\Http\Controllers\BookController@store')->name('book.store');
